@@ -1,0 +1,12 @@
+{
+    "banco": {
+        "nome": "CG Bank",
+        "numero": "456",
+        "agencia": "0001",
+        "senha": "CG123Bank"
+    },
+    "contas": [],
+    "saques": [],
+    "depositos": [],
+    "transferencias": []
+}

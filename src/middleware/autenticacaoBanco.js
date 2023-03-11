@@ -1,4 +1,4 @@
-const { banco } = require('../ data / database')
+const { banco } = require('../data/database')
 
 const autenticacaoBanco = async (req, res, next) => {
     const { senha_banco } = req.query

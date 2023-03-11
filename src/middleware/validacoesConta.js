@@ -1,4 +1,4 @@
-const { verificarEmailCpf } = require('../utils/validacoes')
+const { lerArquivo } = require("../utils/manipulacaoDeArquivos")
 
 const validacoesDadosUsuario = (req, res, next) => {
     const { nome, cpf, data_nascimento, telefone, email, senha } = req.body
@@ -28,7 +28,11 @@ const validacoesDadosUsuario = (req, res, next) => {
             return res.status(400).json({ mensagem: 'Preencha o campo senha' })
         }
 
-        const contaUsuario = verificarEmailCpf(email, cpf)
+        const dadosUsuarioParse = lerArquivo()
+
+        const contaUsuario = dadosUsuarioParse.contas.find(conta => {
+            return conta.usuario.email === email || conta.usuario.cpf === cpf
+        })
 
         if (contaUsuario) {
             return res.status(400).json({ mensagem: 'O cpf ou email informado já existe cadastrado.' })
